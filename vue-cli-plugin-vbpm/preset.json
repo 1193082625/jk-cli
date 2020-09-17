@@ -1,0 +1,42 @@
+{
+    "useConfigFiles": true,
+    "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-router": {
+            "historyMode": true
+        },
+        "@vue/cli-plugin-vuex": {},
+        "@vue/cli-plugin-eslint": {
+            "config": "prettier",
+            "lintOn": [
+                "save"
+            ]
+        }
+    },
+    "config": {
+        "devServer": {
+            "proxy": {
+                "/api": {
+                    "target": "http://beta-core-mr.51yunxi.cn/",
+                    "pathRewrite": {
+                        "^/api": "/api"
+                    },
+                    "changeOrigin": true
+                },
+                "/Image": {
+                    "target": "http://beta-core-mr.51yunxi.cn/",
+                    "pathRewrite": {
+                        "^/Image": "/Image"
+                    },
+                    "changeOrigin": true
+                }
+            }
+        },
+        "lintOnSave": false,
+        "runtimeCompiler": true,
+        "productionSourceMap": false
+    },
+    "router": true,
+    "vuex": true,
+    "cssPreprocessor": "less"
+}
