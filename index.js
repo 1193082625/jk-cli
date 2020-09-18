@@ -33,7 +33,7 @@ switch(argvs[0].toString()) {
     case '-V':
     case '--version':
         execP('npm view jk-cli version --json').then(res => {
-            console.log(res);
+            console.log(res.stdout.split(/\r?\n/g)[0]);
         });
         break;
     case '--help':
