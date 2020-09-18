@@ -1,6 +1,6 @@
 {
     "name": "jk-cli",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "云袭加客快速生成vue+element项目基础代码",
     "main": "index.js",
     "bin": {
