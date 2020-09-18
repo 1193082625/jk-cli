@@ -32,11 +32,13 @@ switch(argvs[0].toString()) {
         break;
     case '-V':
     case '--version':
-        exec('npm view jk-cli version --json');
+        execP('npm view jk-cli version --json').then(res => {
+            console.log(res);
+        });
         break;
     case '--help':
         console.log('-create proName   创建名为proName的项目');
-        console.log('-v --version   查看当前版本号');
+        console.log('-V 或 --version   查看当前版本号');
         break;
     default:
         console.log('命令错误');
