@@ -4,21 +4,14 @@
     "description": "云袭加客快速生成vue+element项目基础代码",
     "main": "index.js",
     "bin": {
-        "jk-cli": "./index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/1193082625/jk-cli.git"
+        "jk": "./index.js"
     },
     "keywords": [
-        "cli"
+        "cli",
+        "vue+element"
     ],
     "author": "echo",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/1193082625/jk-cli/issues"
-    },
-    "homepage": "https://github.com/1193082625/jk-cli#readme",
     "dependencies": {
         "inquirer": "^7.3.3"
     }

@@ -6,9 +6,19 @@ const fs = require('fs')
 const path = require('path')
 const exec = require('child_process').exec
 const execP = util.promisify(require('child_process').exec);
-const argvs = require('process').argv.slice(2);
+const process = require('process');
+const argvs = process.argv.slice(2);
 
-if(!argvs[0]) {
+if(!argvs.length) {
+    console.log('请输入有效信息，参考使用文档');
+    console.log('创建项目请使用: jk create proName');
+    return;
+}
+if(argvs[0] !== 'create') {
+    console.log('命令错误');
+    return;
+}
+if(!argvs[1]) {
     inquirer.prompt([
         {
             type: 'input',
@@ -32,7 +42,7 @@ function createPro(proName) {
         } else {
             let proPath = path.resolve(__dirname, 'vue-cli-plugin-vbpm');
             execP(`cd .. && vue create --preset ${proPath} ${proName}`).then(res => {
-                let mainPath = path.resolve(__dirname, `../${proName}/src/main.js`);
+                let mainPath = path.resolve(process.cwd(), `../${proName}/src/main.js`);
                 const contentMain = fs.readFileSync(mainPath, { encoding: 'utf-8' });
                 const lines = contentMain.split(/\r?\n/g);
             

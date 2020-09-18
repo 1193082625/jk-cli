@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion: 
+ * @Author: 王月
+ * @Date: 2020-09-14 15:09:06
+ * @LastEditors: 王月
+ * @LastEditTime: 2020-09-18 10:06:10
+-->
 ## 快速生成vue+element的框架代码，并且自动添加了相关依赖和基础代码
 
 ### 相关依赖如下：
@@ -38,7 +45,7 @@ npm install -g jk-cli
 
 ```
 // proName 为项目名称
-jk-cli proName
+jk create proName
 ```
 
 创建完成后跟使用vue-cli一样
