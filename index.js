@@ -29,10 +29,10 @@ if(!argvs[1]) {
         createPro(answers.proName);
     })
 } else {
-    createPro(argvs[1]);
+    createPro(argvs[0]);
 }
 function createPro(proName) {
-    console.log(`即将创建${proName}...`);
+    console.log(`即将创建${proName}，请等待...`);
     // 判断是否安装了 vue 和 vue-cli
     let checkPackage = exec(`npm ls @vue/cli -g`);
     checkPackage.stdout.on('data', async (data) => {
@@ -42,7 +42,7 @@ function createPro(proName) {
         } else {
             let proPath = path.resolve(__dirname, 'vue-cli-plugin-vbpm');
             execP(`vue create --preset ${proPath} ${proName}`).then(res => {
-                let mainPath = path.resolve(process.cwd(), `../${proName}/src/main.js`);
+                let mainPath = path.resolve(process.cwd(), `${proName}/src/main.js`);
                 const contentMain = fs.readFileSync(mainPath, { encoding: 'utf-8' });
                 const lines = contentMain.split(/\r?\n/g);
             
