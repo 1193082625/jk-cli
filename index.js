@@ -14,17 +14,8 @@ if(!argvs.length) {
     console.log('创建项目请使用: jk create proName');
     return;
 }
-switch(argvs[0]) {
-    case -h:
-    case --help:
-        console.log('-create proName   创建名为proName的项目');
-        console.log('-v --version   查看当前版本号');
-        break;
-    case -v:
-    case --version:
-        exec('npm view jk-cli version --json');
-        break;
-    case create:
+switch(argvs[0].toString()) {
+    case 'create':
         if(!argvs[1]) {
             inquirer.prompt([
                 {
@@ -38,6 +29,14 @@ switch(argvs[0]) {
         } else {
             createPro(argvs[1]);
         }
+        break;
+    case '-V':
+    case '--version':
+        exec('npm view jk-cli version --json');
+        break;
+    case '--help':
+        console.log('-create proName   创建名为proName的项目');
+        console.log('-v --version   查看当前版本号');
         break;
     default:
         console.log('命令错误');
