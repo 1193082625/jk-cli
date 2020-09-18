@@ -19,9 +19,11 @@ switch(argvs[0]) {
     case --help:
         console.log('-create proName   创建名为proName的项目');
         console.log('-v --version   查看当前版本号');
+        break;
     case -v:
     case --version:
         exec('npm view jk-cli version --json');
+        break;
     case create:
         if(!argvs[1]) {
             inquirer.prompt([
@@ -36,9 +38,10 @@ switch(argvs[0]) {
         } else {
             createPro(argvs[1]);
         }
+        break;
     default:
         console.log('命令错误');
-        return;
+        break;
 
 }
 function createPro(proName) {
